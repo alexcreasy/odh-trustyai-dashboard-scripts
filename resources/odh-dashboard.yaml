@@ -1,0 +1,16 @@
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  name: odh-dashboard
+spec:
+  applications:
+    - kustomizeConfig:
+        repoRef:
+          name: manifests-dashboard
+          path: manifests
+      name: odh-dashboard
+  repos:
+    - name: manifests
+      uri: 'https://github.com/opendatahub-io/odh-manifests/tarball/master'
+    - name: manifests-dashboard
+      uri: 'https://github.com/opendatahub-io/odh-dashboard/tarball/main'

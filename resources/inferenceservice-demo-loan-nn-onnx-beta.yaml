@@ -1,0 +1,20 @@
+﻿apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  annotations:
+    openshift.io/display-name: demo-loan-nn-onnx-beta
+    serving.kserve.io/deploymentMode: ModelMesh
+  name: demo-loan-nn-onnx-beta
+  namespace: trustyai-e2e-modelmesh
+  labels:
+    name: demo-loan-nn-onnx-beta
+    opendatahub.io/dashboard: 'true'
+spec:
+  predictor:
+    model:
+      modelFormat:
+        name: onnx
+        version: '1'
+      runtime: ovms
+      storageUri: "https://github.com/RobGeada/trustyai_april12_demo/blob/main/resources/loan_model_beta.onnx?raw=true"
+      

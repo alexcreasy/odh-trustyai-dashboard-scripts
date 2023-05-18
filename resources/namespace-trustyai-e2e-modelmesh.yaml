@@ -1,0 +1,11 @@
+﻿kind: Namespace
+apiVersion: v1
+metadata:
+  name: trustyai-e2e-modelmesh
+  labels:
+    kubernetes.io/metadata.name: trustyai-e2e-modelmesh
+    modelmesh-enabled: 'true'
+    opendatahub.io/dashboard: 'true'
+  annotations:
+    openshift.io/description: ''
+    openshift.io/display-name: trustyai-e2e-modelmesh
