@@ -1,0 +1,38 @@
+apiVersion: kfdef.apps.kubeflow.org/v1
+kind: KfDef
+metadata:
+  name: odh-modelmesh
+  namespace: opendatahub
+spec:
+  applications:
+    - kustomizeConfig:
+        overlays:
+          - odh-model-controller
+        parameters:
+          - name: monitoring-namespace
+            value: opendatahub
+        repoRef:
+          name: manifests
+          path: model-mesh
+      name: model-mesh
+    - kustomizeConfig:
+        parameters:
+          - name: deployment-namespace
+            value: opendatahub
+        repoRef:
+          name: manifests
+          path: modelmesh-monitoring
+      name: modelmesh-monitoring
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: prometheus/cluster
+      name: prometheus-cluster
+    - kustomizeConfig:
+        repoRef:
+          name: manifests
+          path: prometheus/operator
+      name: prometheus-operator
+  repos:
+    - name: manifests
+      uri: 'https://github.com/opendatahub-io/odh-manifests/tarball/master'

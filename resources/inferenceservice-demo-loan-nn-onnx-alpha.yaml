@@ -15,6 +15,6 @@ spec:
       modelFormat:
         name: onnx
         version: '1'
-      runtime: ovms
+      runtime: mlserver-0.x
       storageUri: "https://github.com/RobGeada/trustyai_april12_demo/blob/main/resources/loan_model_alpha.onnx?raw=true"
       
