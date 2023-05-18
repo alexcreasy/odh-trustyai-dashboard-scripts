@@ -8,7 +8,6 @@ metadata:
     opendatahub.io/template-name: ovms
     openshift.io/display-name: ovms
   name: ovms
-  namespace: trustyai-e2e-modelmesh
   labels:
     name: ovms
     opendatahub.io/dashboard: 'true'
